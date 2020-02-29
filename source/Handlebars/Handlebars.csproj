@@ -3,7 +3,7 @@
   <PropertyGroup>
     <DebugType>portable</DebugType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <TargetFrameworks>net452;netstandard1.3;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net452;netstandard1.3;netstandard2.0;netcoreapp2.2</TargetFrameworks>
     <Version>1.10.2</Version>
     <LangVersion>7</LangVersion>
   </PropertyGroup>
@@ -12,6 +12,9 @@
     <DefineConstants>$(DefineConstants);netstandard;netstandard1_3</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <DefineConstants>$(DefineConstants);netstandard</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp2.2'">
     <DefineConstants>$(DefineConstants);netstandard</DefineConstants>
   </PropertyGroup>
 
@@ -39,6 +42,10 @@
     <PackageReference Include="System.Reflection.TypeExtensions " Version="4.3.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <PackageReference Include="Microsoft.CSharp" Version="4.4.0" />
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.4.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp2.2'">
     <PackageReference Include="Microsoft.CSharp" Version="4.4.0" />
     <PackageReference Include="System.Reflection.TypeExtensions" Version="4.4.0" />
   </ItemGroup>
